@@ -1,0 +1,122 @@
+﻿$base-t1: #2B2B2B !default;
+$base-t2: #404040 !default;
+$base: #1b1b1b !default;
+$base-s1: #0D0D0D !default;
+$base-s2: #000000 !default;
+
+$primary-t1: #DA588A !default;
+$primary-t2: #E382A7 !default;
+$primary: #D12E6C !default;
+$primary-s1: #A72557 !default;
+$primary-s2: #7D1C41 !default;
+
+$text-t1: #F7F7F7 !default;
+$text-t2: #FFFFFF !default;
+$text: #EAEAEA !default;
+$text-s1: #D1D1D1 !default;
+$text-s2: #B8B8B8 !default;
+
+$accent-t1: #58DAB5 !default;
+$accent-t2: #82E3C8 !default;
+$accent: #2ED1A3 !default;
+$accent-s1: #25A782 !default;
+$accent-s2: #1C7D62 !default;
+
+$spacing-lg: 32px !default;
+$spacing-md: 16px !default;
+$spacing: 8px !default;
+
+$standard-font: Raleway, sans-serif;
+$heading-font: Montserrat, sans-serif;
+$border-radius: 4px;
+
+$reverse-lookup: (
+  #{$base-s1}: --base-s1,
+  #{$base-s2}: --base-s2,
+  #{$base}: --base,
+  #{$base-t1}: --base-t1,
+  #{$base-t2}: --base-t2,
+  #{$primary}: --primary,
+  #{$primary-t1}: --primary-t1,
+  #{$primary-t2}: --primary-t2,
+  #{$primary-s1}: --primary-s1,
+  #{$primary-s2}: --primary-s2,
+  #{$text}: --text,
+  #{$text-s1}: --text-s1,
+  #{$text-s2}: --text-s2,
+  #{$text-t1}: --text-t1,
+  #{$text-t2}: --text-t2,
+  #{$accent}: --accent,
+  #{$accent-t1}: --accent-t1,
+  #{$accent-t2}: --accent-t2,
+  #{$accent-s1}: --accent-s1,
+  #{$accent-s2}: --accent-s2,
+  #{$spacing}: --spacing,
+  #{$spacing-md}: --spacing-md,
+  #{$spacing-lg}: --spacing-lg,
+  #{$border-radius}: --border-radius,
+);
+
+@mixin apply-theme() {
+  :root {
+    box-sizing: border-box;
+    background-color: l($base);
+    color: l($text);
+    @each $key, $value in $reverse-lookup {
+      #{$value}: $key
+    }
+    font-family: $standard-font;
+    font-size: 10pt;
+    line-height: 1.25rem;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: $heading-font;
+    font-weight: 200;
+  }
+
+  html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+@function l($lookup) {
+  @return var(map-get($reverse-lookup, #{$lookup}));
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("/assets/Montserrat-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("/assets/Montserrat-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("/assets/Montserrat-Light.ttf") format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("/assets/Montserrat-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Raleway;
+  src: url("/assets/Raleway-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Raleway;
+  src: url("/assets/Raleway-Thin.ttf") format("truetype");
+  font-weight: 200;
+}

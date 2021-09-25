@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'theme';
+
+@include apply-theme();
+
+.bones-btn {
+  cursor: pointer;
+  padding: l($spacing);
+  background-color: l($base-t1);
+  color: l($text);
+  border-radius: l($border-radius);
+  font-size: 12pt;
+  border: 1px solid transparent;
+
+  &:hover {
+    background-color: l($base-t2);
+  }
+
+  &:active {
+    background-color: l($base-s1);
+  }
+
+  &.outline {
+    background-color: transparent;
+    border: 1px solid l($text);
+
+    &:hover {
+      background-color: l($base-t2);
+    }
+
+    &:active {
+      background-color: l($base-s1);
+    }
+
+    &.primary {
+      background-color: transparent;
+      border: 1px solid l($primary-t1);
+      color: l($primary-t1);
+
+      &:hover {
+        background-color: l($base-t2);
+      }
+
+      &:active {
+        background-color: l($base-s1);
+      }
+    }
+  }
+
+  // primary button
+  &.primary {
+    background-color: l($primary-t1);
+
+    &:hover {
+      background-color: l($primary-t2);
+    }
+
+    &:active {
+      background-color: l($primary-s1);
+    }
+
+  }
+
+}
